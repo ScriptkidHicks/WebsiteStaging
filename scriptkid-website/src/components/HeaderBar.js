@@ -5,14 +5,20 @@ import GitIcon from "../Images/GitIcon.png";
 import MenuIcon from "../Images/MenuIcon.png";
 import LinkedIn from "../Images/LinkedIn.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function HeaderBar() {
   const [menuShown, setMenuShown] = useState(false);
+  const navigate = useNavigate();
 
   function MenuToggle() {
     console.log("testy");
     console.log(menuShown);
     setMenuShown(!menuShown);
+  }
+
+  function LoadPage(pageLocation) {
+    navigate(pageLocation);
   }
 
   return (
@@ -59,8 +65,9 @@ function HeaderBar() {
           >
             My Linkedin
           </BurgerItem>
-          <BurgerItem>My Projects</BurgerItem>
-          <BurgerItem>About Me</BurgerItem>
+          <BurgerItem href="./ProjectsPage">My Projects</BurgerItem>
+          <BurgerItem href="./About">About Me</BurgerItem>
+          <BurgerItem href="./">Main Page</BurgerItem>
         </BurgerMenu>
       )}
     </Header>
@@ -113,7 +120,7 @@ const BurgerMenu = styled.div`
   justify-content: space-evenly;
   background-color: #3e3e3e;
   height: 500px;
-  width: 45%;
+  width: 45vw;
   max-width: 100vw;
   min-width: 300px;
   border: 2px solid black;

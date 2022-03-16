@@ -6,6 +6,7 @@ import FooterBar from "./components/FooterBar";
 
 import AboutPage from "./Pages/AboutPage";
 import LandingPage from "./Pages/LandingPage";
+import AneurysmVisItPage from "./Pages/AneurysmVisItPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
         <Route path="/About" element={<AboutPage />} />
+        <Route path="/AneurysmVisIt" element={<AneurysmVisItPage />} />
       </Routes>
       <FooterBar />
     </Mainbody>

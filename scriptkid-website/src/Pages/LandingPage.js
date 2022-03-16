@@ -2,8 +2,18 @@ import styled from "styled-components";
 import Casual from "../Images/casual.jpg";
 import Coleville from "../Images/ColevilleCover.png";
 import Reddit from "../Images/RedditSearch.png";
+import NewSite from "../Images/NewSite.png";
+import Aneurysm from "../Images/Streamline0008.png"
+import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
+
+  const navigate = useNavigate();
+
+  function LoadPage(targetPage){
+    navigate(targetPage);
+  }
+
   return (
     <PageBody>
       <PicAndIntro>
@@ -28,10 +38,28 @@ function LandingPage() {
           <HeaderBar />
         </ProjectsHeader>
         <ProjectRow>
-          <Project background={Coleville}>
-            <ProjectTitle>Coleville Bot</ProjectTitle>
-          </Project>
-          <Project background={Reddit}>Example2</Project>
+          <ProjectWrapper>
+            <Project background={Coleville}>
+              <ProjectTitle>Coleville Bot</ProjectTitle>
+            </Project>
+          </ProjectWrapper>
+          <ProjectWrapper>
+            <Project background={Reddit}>
+              <ProjectTitle>Example2</ProjectTitle>
+            </Project>
+          </ProjectWrapper>
+          <ProjectWrapper>
+            <Project background={NewSite}>
+              <ProjectTitle>This Site</ProjectTitle>
+            </Project>
+          </ProjectWrapper>
+        </ProjectRow>
+        <ProjectRow>
+          <ProjectWrapper onClick={() => LoadPage("/AneurysmVisIt")}>
+            <Project background={Aneurysm} style={{backgroundSize: "100% 100%"}}>
+              <ProjectTitle>Aneurysm Visualization</ProjectTitle>
+            </Project>
+          </ProjectWrapper>
         </ProjectRow>
       </ProjectColumn>
     </PageBody>
@@ -111,6 +139,7 @@ const ProjectColumn = styled.div`
 
   @media screen and (max-width: 900px) {
     margin-top: 60px;
+    display: none;
   }
 `;
 
@@ -138,8 +167,11 @@ const ProjectsHeader = styled.h1`
 
 const Project = styled.div`
   background: url(${(props) => props.background});
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  max-width: 100vw;
+  height: 150px;
+  max-height: 100vw;
+  margin-bottom: 50px;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -152,11 +184,28 @@ const Project = styled.div`
     border-radius: 10%;
     box-shadow: 10px 10px 10px black;
   }
+
+  @media screen and (max-width: 900px) {
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    box-shadow: 10px 10px 10px black;
+  }
+`;
+
+const ProjectWrapper = styled.div`
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 900px) {
+    width: 200px;
+  }
 `;
 
 const ProjectTitle = styled.h3`
+  text-align: center;
   color: white;
-  padding: 10px;
-  border-radius: 10%;
-  background-color: rgba(0, 0, 0, 0.4);
 `;
