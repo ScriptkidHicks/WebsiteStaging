@@ -9,11 +9,21 @@ function AboutPage() {
       <AboutParagraph>
         Currently I work for the University of Oregon Continuing Education
         department as a front end development with a secondary role as a
-        designer. I'm finishing my degree in Computer Information Science this coming Spring (June 2022), after which I'll be looking for work that allows me to live in portland Oregon. I'm open to companies based out of Portland, or remote work.<br /><br />
-
-        If you're looking for someone to do frontend development for you, especially someone who has experience with react, and someone comfortable working on back end projects, then I think I have something to offer your company. I have a good eye for design and user interface, as well as a solid understanding of software structure.<br /><br />
-
-        Check out my projects on here, and if you like what you see, reach out through my email for a resume or interview.
+        designer. I'm finishing my degree in Computer Information Science this
+        coming Spring (June 2022), after which I'll be looking for work that
+        allows me to live in portland Oregon. I'm open to companies based out of
+        Portland, or remote work.
+        <br />
+        <br />
+        If you're looking for someone to do frontend development for you,
+        especially someone who has experience with react, and someone
+        comfortable working on back end projects, then I think I have something
+        to offer your company. I have a good eye for design and user interface,
+        as well as a solid understanding of software structure.
+        <br />
+        <br />
+        Check out my projects on here, and if you like what you see, reach out
+        through my email for a resume or interview.
       </AboutParagraph>
     </PageBody>
   );
@@ -22,7 +32,7 @@ function AboutPage() {
 export default AboutPage;
 
 const PageBody = styled.div`
-  min-height: 100vh;
+  min-height: 83vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +47,7 @@ const PageTitle = styled.h2`
   justify-content: center;
   text-align: center;
 
-  @media screen and (max-width: 900px){
+  @media screen and (max-width: 900px) {
     align-items: center;
     margin-top: 60px;
   }

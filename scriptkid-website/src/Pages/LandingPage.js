@@ -94,6 +94,7 @@ const CasualPic = styled.img`
   width: 40%;
   max-width: 600px;
   min-width: 250px;
+  box-shadow: 5px 5px 5px black;
 
   @media screen and (max-width: 900px) {
     width: 60%;

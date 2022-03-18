@@ -15,10 +15,18 @@ function FooterBar() {
         <a>
           <Icon src={EmailIcon} alt="email icon" />
         </a>
-        <a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/ScriptkidHicks"
+          >
           <Icon src={GitIcon} alt="git icon" />
         </a>
-        <a>
+        <a 
+          href="https://www.linkedin.com/in/tammas-hicks/"
+          target="_blank"
+          rel="noreferrer"
+            >
           <Icon src={LinkedIn} alt="linkedin icon" />
         </a>
       </IconLinks>

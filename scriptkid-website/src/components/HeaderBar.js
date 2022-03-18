@@ -5,22 +5,15 @@ import GitIcon from "../Images/GitIcon.png";
 import MenuIcon from "../Images/MenuIcon.png";
 import LinkedIn from "../Images/LinkedIn.png";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function HeaderBar() {
   const [menuShown, setMenuShown] = useState(false);
-  const navigate = useNavigate();
 
   function MenuToggle() {
     console.log("testy");
     console.log(menuShown);
     setMenuShown(!menuShown);
   }
-
-  function LoadPage(pageLocation) {
-    navigate(pageLocation);
-  }
-
   return (
     <Header>
       <NameTitle>Programming Work by Tammas Hicks</NameTitle>
@@ -85,6 +78,11 @@ const Header = styled.div`
   align-items: center;
   justify-content: space-around;
   box-shadow: -5px 0px 10px black;
+  
+  @media screen and (max-width: 460px){
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 `;
 
 const NameTitle = styled.h2`
