@@ -58,13 +58,6 @@ const TitleAndBar = styled.div`
   margin-bottom: 20px;
 `;
 
-const HeaderBar = styled.hr`
-  margin: 0;
-  width: 100%;
-  margin-left: 20px;
-  margin-right: 20px;
-`;
-
 const AboutParagraph = styled.p`
   width: 80%;
   line-height: 2;

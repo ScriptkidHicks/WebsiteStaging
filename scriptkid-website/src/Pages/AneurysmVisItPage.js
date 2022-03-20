@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { NavigationLink, PageBody } from "../components/DefaultComponents";
+
 function AneurysmVisItPage() {
   return (
     <PageBody>
@@ -62,22 +64,13 @@ function AneurysmVisItPage() {
 
 export default AneurysmVisItPage;
 
-const PageBody = styled.div`
-  max-width: 1900px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  min-height: 74vh;
-`;
-
 const IframeAndLinks = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
 
   @media screen and (max-width: 1250px) {
     flex-direction: column;
@@ -125,19 +118,5 @@ const NavLinks = styled.div`
 
   @media screen and (max-width: 800px) {
     display: none;
-  }
-`;
-
-const NavigationLink = styled.a`
-  color: white;
-  text-decoration: none;
-  padding: 20px;
-  transition: ease all 0.6s;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4% / 50%;
-  font-size: 1.3em;
-
-  :hover {
-    box-shadow: 5px 5px 5px black;
   }
 `;

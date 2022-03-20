@@ -2,15 +2,17 @@ import styled from "styled-components";
 import Casual from "../Images/casual.jpg";
 import Coleville from "../Images/ColevilleCover.png";
 import Reddit from "../Images/RedditSearch.png";
+import FitnessFiend from "../Images/FitnessFiendIntro.png";
 import NewSite from "../Images/NewSite.png";
-import Aneurysm from "../Images/Streamline0008.png"
+import Aneurysm from "../Images/Streamline0008.png";
 import { useNavigate } from "react-router-dom";
 
-function LandingPage() {
+import { PageBody } from "../components/DefaultComponents";
 
+function LandingPage() {
   const navigate = useNavigate();
 
-  function LoadPage(targetPage){
+  function LoadPage(targetPage) {
     navigate(targetPage);
   }
 
@@ -43,9 +45,9 @@ function LandingPage() {
               <ProjectTitle>Coleville Bot</ProjectTitle>
             </Project>
           </ProjectWrapper>
-          <ProjectWrapper>
-            <Project background={Reddit}>
-              <ProjectTitle>Example2</ProjectTitle>
+          <ProjectWrapper onClick={() => LoadPage("/MyFitnessFiend")}>
+            <Project background={FitnessFiend}>
+              <ProjectTitle>My Fitness Fiend</ProjectTitle>
             </Project>
           </ProjectWrapper>
           <ProjectWrapper>
@@ -56,7 +58,10 @@ function LandingPage() {
         </ProjectRow>
         <ProjectRow>
           <ProjectWrapper onClick={() => LoadPage("/AneurysmVisIt")}>
-            <Project background={Aneurysm} style={{backgroundSize: "100% 100%"}}>
+            <Project
+              background={Aneurysm}
+              style={{ backgroundSize: "100% 100%" }}
+            >
               <ProjectTitle>Aneurysm Visualization</ProjectTitle>
             </Project>
           </ProjectWrapper>
@@ -68,21 +73,13 @@ function LandingPage() {
 
 export default LandingPage;
 
-const PageBody = styled.div`
-  max-width: 1900px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-`;
-
 const PicAndIntro = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  margin-top: 100px;
 
   @media screen and (max-width: 900px) {
     flex-direction: column;
@@ -207,6 +204,9 @@ const ProjectWrapper = styled.div`
 `;
 
 const ProjectTitle = styled.h3`
+  background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
-  color: white;
+  color: black;
+  border-radius: 20px;
+  padding: 5px;
 `;

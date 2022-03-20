@@ -7,6 +7,7 @@ import FooterBar from "./components/FooterBar";
 import AboutPage from "./Pages/AboutPage";
 import LandingPage from "./Pages/LandingPage";
 import AneurysmVisItPage from "./Pages/AneurysmVisItPage";
+import MyFitnessFiendPage from "./Pages/MyFitnessFiendPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" exact element={<LandingPage />} />
         <Route path="/About" element={<AboutPage />} />
         <Route path="/AneurysmVisIt" element={<AneurysmVisItPage />} />
+        <Route path="/MyFitnessFiend" element={<MyFitnessFiendPage />} />
       </Routes>
       <FooterBar />
     </Mainbody>
@@ -24,6 +26,4 @@ function App() {
 
 export default App;
 
-const Mainbody = styled.div`
-  background-color: black;
-`;
+const Mainbody = styled.div``;
