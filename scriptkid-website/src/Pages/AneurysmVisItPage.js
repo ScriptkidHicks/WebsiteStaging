@@ -1,11 +1,17 @@
 import styled from "styled-components";
 
-import { NavigationLink, PageBody } from "../components/DefaultComponents";
+import {
+  PageBody,
+  TextLink,
+  ContentRow,
+  ContentColumn,
+  NavLinks,
+} from "../components/DefaultComponents";
 
 function AneurysmVisItPage() {
   return (
     <PageBody>
-      <IframeAndLinks>
+      <ContentRow MobileOrder="column">
         <AneurysmVid
           src="https://www.youtube.com/embed/rGB3E8xr6Ug"
           title="YouTube video player"
@@ -13,7 +19,7 @@ function AneurysmVisItPage() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         />
-        <Links>
+        <ContentColumn>
           <h2 style={{ textAlign: "center" }}>
             Visualizing an Aneurysm in VisIt
           </h2>
@@ -24,71 +30,28 @@ function AneurysmVisItPage() {
             aneurysm over the course of about 8 seconds. You can find a writeup
             I did on my methods, along with some more still images I captured
             from the process{" "}
-            <strong>
-              <a
-                style={{ textDecoration: "none", color: "#4042bC" }}
-                href="https://github.com/ScriptkidHicks/AneurysmRendering"
-                target="_blank"
-                rel="noreferrer"
-              >
-                here
-              </a>
-            </strong>
+            <TextLink
+              endpoint="https://github.com/ScriptkidHicks/AneurysmRendering"
+              text="here"
+            />
             . The project involved some coding, though mostly this was to create
             various scripts to record the movie. The majority of the work
             focused on interpreting the data, and making decisions about how to
             visualize the data. You can view the full movie{" "}
-            <strong>
-              <a
-                style={{ textDecoration: "none", color: "#4042bC" }}
-                rel="noreferrer"
-                target="_blank"
-                href="https://www.youtube.com/watch?v=rGB3E8xr6Ug&t=61s&ab_channel=TammasHicks"
-              >
-                here
-              </a>
-            </strong>
+            <TextLink
+              endpoint="https://www.youtube.com/watch?v=rGB3E8xr6Ug&t=61s&ab_channel=TammasHicks"
+              text="here"
+            />
             .
           </Description>
-          <NavLinks>
-            <NavigationLink href="/">Back to the landing page</NavigationLink>
-            <NavigationLink href="/about">
-              Check out other projects
-            </NavigationLink>
-          </NavLinks>
-        </Links>
-      </IframeAndLinks>
+          <NavLinks />
+        </ContentColumn>
+      </ContentRow>
     </PageBody>
   );
 }
 
 export default AneurysmVisItPage;
-
-const IframeAndLinks = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
-  margin-top: 100px;
-  margin-bottom: 100px;
-
-  @media screen and (max-width: 1250px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const Links = styled.div`
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  @media screen and (max-width: 1250px) {
-    width: 80%;
-  }
-`;
 
 const AneurysmVid = styled.iframe`
   border: none;
@@ -96,7 +59,7 @@ const AneurysmVid = styled.iframe`
   width: 44vw;
   height: 30vw;
 
-  @media screen and (max-width: 1250px) {
+  @media screen and (max-width: 1200px) {
     margin-bottom: 40px;
     width: 88vw;
     height: 60vw;
@@ -106,17 +69,4 @@ const AneurysmVid = styled.iframe`
 const Description = styled.p`
   font-size: 1.2em;
   line-height: 2;
-`;
-
-const NavLinks = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  margin-top: 40px;
-
-  @media screen and (max-width: 800px) {
-    display: none;
-  }
 `;

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { PageBody, NavLinks } from "../components/DefaultComponents";
+
 function AboutPage() {
   return (
     <PageBody>
@@ -25,19 +27,12 @@ function AboutPage() {
         Check out my projects on here, and if you like what you see, reach out
         through my email for a resume or interview.
       </AboutParagraph>
+      <NavLinks />
     </PageBody>
   );
 }
 
 export default AboutPage;
-
-const PageBody = styled.div`
-  min-height: 83vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
 const PageTitle = styled.h2`
   color: white;

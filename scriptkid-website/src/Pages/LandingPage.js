@@ -7,7 +7,7 @@ import NewSite from "../Images/NewSite.png";
 import Aneurysm from "../Images/Streamline0008.png";
 import { useNavigate } from "react-router-dom";
 
-import { PageBody } from "../components/DefaultComponents";
+import { PageBody, Project } from "../components/DefaultComponents";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -161,34 +161,6 @@ const ProjectsHeader = styled.h1`
   text-align: center;
   width: 100%;
   margin-bottom: 100px;
-`;
-
-const Project = styled.div`
-  background: url(${(props) => props.background});
-  width: 150px;
-  max-width: 100vw;
-  height: 150px;
-  max-height: 100vw;
-  margin-bottom: 50px;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  transition: ease all 1s;
-
-  :hover {
-    width: 300px;
-    height: 300px;
-    border-radius: 10%;
-    box-shadow: 10px 10px 10px black;
-  }
-
-  @media screen and (max-width: 900px) {
-    width: 200px;
-    height: 200px;
-    border-radius: 10%;
-    box-shadow: 10px 10px 10px black;
-  }
 `;
 
 const ProjectWrapper = styled.div`

@@ -4,6 +4,14 @@ import KettleHell from "../Images/KettleHell.png";
 import Diagram from "../Images/diagram.png";
 import Database from "../Images/Database.png";
 
+import {
+  PageBody,
+  ContentColumn,
+  ContentRow,
+  TextLink,
+  NavLinks,
+} from "../components/DefaultComponents";
+
 function MyFitnessFiendPage() {
   return (
     <PageBody>
@@ -57,7 +65,13 @@ function MyFitnessFiendPage() {
             <em>This is the database that Jordan Developed for us.</em>
             <Title>Technical Features</Title>
             <ul>
-              <li>Session authentication with expiration</li>
+              <li>
+                Session authentication with expiration
+                <br />
+                <ul>
+                  <li>Used JWT to determine login</li>
+                </ul>
+              </li>
               <li>RESTful API</li>
               <li>Flexible, mobile-first, interface design</li>
               <li>Email system for mailing users their daily workout</li>
@@ -69,51 +83,67 @@ function MyFitnessFiendPage() {
           </Descriptor>
         </ContentColumn>
       </ContentRow>
-      <ContentRow>
-        <ContentColumn></ContentColumn>
-        <ContentColumn></ContentColumn>
+      <ContentRow MobileOrder="column">
+        <ContentColumn>
+          <Descriptor>
+            I can't emphasize enough how grateful I am for the amazing team I
+            had on this project.{" "}
+            <TextLink
+              endpoint="https://github.com/jssmith9876"
+              text="Jordan Smith"
+            />{" "}
+            was responsible for creating the database manager, the API, and
+            managing the backend.{" "}
+            <TextLink
+              endpoint="https://github.com/doughnut187"
+              text="Thomas Joyce"
+            />{" "}
+            was responsible for developing the email manager, the engine which
+            created workouts for users, and the content of the workouts
+            themselves.{" "}
+            <TextLink endpoint="https://github.com/ncotta" text="Nik Cotta" />{" "}
+            was responsible for creating the python implementation of the
+            fitness fiends themselves.{" "}
+            <TextLink text="Ash Chin" endpoint="https://github.com/ash-chin" />{" "}
+            was our incredible project manager who kept us all on task,
+            contributed to UI design, and gave a lot of thought to the way we
+            structured the software. I was responsible for the development of
+            the frontend, and contributed to the UI design.
+            <br />
+            <br />
+            <em>
+              Special thanks go to artists{" "}
+              <TextLink
+                endpoint="https://www.kristelbugayong.com/"
+                text="Krystal Bugayong"
+              />{" "}
+              and{" "}
+              <TextLink
+                text="Pencil Equiped"
+                endpoint="https://pencilequipped.artstation.com/"
+              />{" "}
+              for their creation of the fitness fiends that we all loved.
+            </em>
+          </Descriptor>
+        </ContentColumn>
+        <ContentColumn>
+          <Descriptor>
+            You can find the github repo of our work on the project{" "}
+            <TextLink
+              text="here"
+              endpoint="https://github.com/ScriptkidHicks/My_Fitness_Fiend"
+            />
+            . The 'Deployment' branch contains our most recent work on the
+            project.
+          </Descriptor>
+          <NavLinks />
+        </ContentColumn>
       </ContentRow>
     </PageBody>
   );
 }
 
 export default MyFitnessFiendPage;
-
-const PageBody = styled.div`
-  max-width: 1900px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  min-height: 74vh;
-`;
-
-const ContentRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 100px;
-
-  @media screen and (max-width: 900px) {
-    flex-direction: ${(props) => props.MobileOrder};
-  }
-`;
-
-const ContentColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-
-  @media screen and (max-width: 900px) {
-    width: 90%;
-  }
-`;
 
 const Title = styled.h2``;
 
@@ -125,7 +155,7 @@ const Descriptor = styled.p`
 const ContentImage = styled.img`
   width: 40%;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1200px) {
     width: 90%;
   }
 `;
