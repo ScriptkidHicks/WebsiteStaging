@@ -100,6 +100,11 @@ const ContentRow = styled.div`
   }
 `;
 
+const Descriptor = styled.p`
+  font-size: 1.2em;
+  line-height: 1.5;
+`;
+
 const TextLinkStyles = styled.a`
   text-decoration: none;
   color: #4042bc;
@@ -115,4 +120,12 @@ function TextLink(props) {
   );
 }
 
-export { PageBody, Project, ContentColumn, ContentRow, TextLink, NavLinks };
+export {
+  PageBody,
+  Project,
+  ContentColumn,
+  ContentRow,
+  TextLink,
+  NavLinks,
+  Descriptor,
+};

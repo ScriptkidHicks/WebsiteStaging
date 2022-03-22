@@ -10,6 +10,7 @@ import {
   ContentRow,
   TextLink,
   NavLinks,
+  Descriptor,
 } from "../components/DefaultComponents";
 
 function MyFitnessFiendPage() {
@@ -146,11 +147,6 @@ function MyFitnessFiendPage() {
 export default MyFitnessFiendPage;
 
 const Title = styled.h2``;
-
-const Descriptor = styled.p`
-  font-size: 1.2em;
-  line-height: 1.5;
-`;
 
 const ContentImage = styled.img`
   width: 40%;

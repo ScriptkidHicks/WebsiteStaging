@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import Casual from "../Images/casual.jpg";
-import Coleville from "../Images/ColevilleCover.png";
-import Reddit from "../Images/RedditSearch.png";
 import FitnessFiend from "../Images/FitnessFiendIntro.png";
 import NewSite from "../Images/NewSite.png";
 import Aneurysm from "../Images/Streamline0008.png";
+import FreelancerIntro from "../Images/FreelancerIntro.png";
+
 import { useNavigate } from "react-router-dom";
 
-import { PageBody, Project } from "../components/DefaultComponents";
+import { PageBody, Project, TextLink } from "../components/DefaultComponents";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -40,9 +40,9 @@ function LandingPage() {
           <HeaderBar />
         </ProjectsHeader>
         <ProjectRow>
-          <ProjectWrapper>
-            <Project background={Coleville}>
-              <ProjectTitle>Coleville Bot</ProjectTitle>
+          <ProjectWrapper onClick={() => LoadPage("/ProjectFreelancer")}>
+            <Project background={FreelancerIntro}>
+              <ProjectTitle>Project Freelancer</ProjectTitle>
             </Project>
           </ProjectWrapper>
           <ProjectWrapper onClick={() => LoadPage("/MyFitnessFiend")}>
@@ -67,6 +67,12 @@ function LandingPage() {
           </ProjectWrapper>
         </ProjectRow>
       </ProjectColumn>
+      <HiddenLinks>
+        If you want to check out some of my projects, you can find them{" "}
+        <TextLink text="here" endpoint="/ProjectsPage" />. If you want to know a
+        little bit more about my work as a developer, you can check the{" "}
+        <TextLink endpoint="/about" text="about" /> page.
+      </HiddenLinks>
     </PageBody>
   );
 }
@@ -181,4 +187,17 @@ const ProjectTitle = styled.h3`
   color: black;
   border-radius: 20px;
   padding: 5px;
+`;
+
+const HiddenLinks = styled.p`
+  width: 90%;
+  display: none;
+  font-size: 1.3em;
+  line-height: 1.5em;
+  margin-bottom: 100px;
+
+  @media screen and (max-width: 900px) {
+    display: inline;
+    flex-direction: row;
+  }
 `;
