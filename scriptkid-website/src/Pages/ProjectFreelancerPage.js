@@ -87,7 +87,7 @@ function ProjectFreelancerPage() {
             />
             .
           </Descriptor>
-          <NavLinks></NavLinks>
+          <NavLinks />
         </ContentColumn>
       </ContentRow>
     </PageBody>

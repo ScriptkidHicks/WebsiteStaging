@@ -7,15 +7,15 @@ import FreelancerIntro from "../Images/FreelancerIntro.png";
 
 import { useNavigate } from "react-router-dom";
 
-import { PageBody, Project, TextLink } from "../components/DefaultComponents";
+import {
+  PageBody,
+  ProjectColumn,
+  ProjectsHeader,
+  ProjectRow,
+  ProjectWrapper,
+} from "../components/DefaultComponents";
 
 function LandingPage() {
-  const navigate = useNavigate();
-
-  function LoadPage(targetPage) {
-    navigate(targetPage);
-  }
-
   return (
     <PageBody>
       <PicAndIntro>
@@ -40,39 +40,32 @@ function LandingPage() {
           <HeaderBar />
         </ProjectsHeader>
         <ProjectRow>
-          <ProjectWrapper onClick={() => LoadPage("/ProjectFreelancer")}>
-            <Project background={FreelancerIntro}>
-              <ProjectTitle>Project Freelancer</ProjectTitle>
-            </Project>
-          </ProjectWrapper>
-          <ProjectWrapper onClick={() => LoadPage("/MyFitnessFiend")}>
-            <Project background={FitnessFiend}>
-              <ProjectTitle>My Fitness Fiend</ProjectTitle>
-            </Project>
-          </ProjectWrapper>
-          <ProjectWrapper>
-            <Project background={NewSite}>
-              <ProjectTitle>This Site</ProjectTitle>
-            </Project>
-          </ProjectWrapper>
+          <ProjectWrapper
+            BackgroundSource={FreelancerIntro}
+            Title="Project Freelancer"
+            Destination="/ProjectFreelancer"
+            Cover={true}
+          />
+          <ProjectWrapper
+            BackgroundSource={FitnessFiend}
+            Title="My Fitness Fiend"
+            Destination="/MyFitnessFiend"
+          />
+          <ProjectWrapper
+            BackgroundSource={NewSite}
+            Title="This Site"
+            Destination="/"
+          />
         </ProjectRow>
         <ProjectRow>
-          <ProjectWrapper onClick={() => LoadPage("/AneurysmVisIt")}>
-            <Project
-              background={Aneurysm}
-              style={{ backgroundSize: "100% 100%" }}
-            >
-              <ProjectTitle>Aneurysm Visualization</ProjectTitle>
-            </Project>
-          </ProjectWrapper>
+          <ProjectWrapper
+            BackgroundSource={Aneurysm}
+            Title="Aneurysm Visiualization"
+            Destination="/AneurysmVisIt"
+            Cover={true}
+          />
         </ProjectRow>
       </ProjectColumn>
-      <HiddenLinks>
-        If you want to check out some of my projects, you can find them{" "}
-        <TextLink text="here" endpoint="/ProjectsPage" />. If you want to know a
-        little bit more about my work as a developer, you can check the{" "}
-        <TextLink endpoint="/about" text="about" /> page.
-      </HiddenLinks>
     </PageBody>
   );
 }
@@ -132,61 +125,6 @@ const IntroParagraph = styled.p`
     font-size: 1.3em;
     text-aign: center;
   }
-`;
-
-const ProjectColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 120px;
-  width: 100%;
-
-  @media screen and (max-width: 900px) {
-    margin-top: 60px;
-    display: none;
-  }
-`;
-
-const ProjectRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
-
-  @media screen and (max-width: 900px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const ProjectsHeader = styled.h1`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-justify: center;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 100px;
-`;
-
-const ProjectWrapper = styled.div`
-  width: 400px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  @media screen and (max-width: 900px) {
-    width: 200px;
-  }
-`;
-
-const ProjectTitle = styled.h3`
-  background-color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  color: black;
-  border-radius: 20px;
-  padding: 5px;
 `;
 
 const HiddenLinks = styled.p`
