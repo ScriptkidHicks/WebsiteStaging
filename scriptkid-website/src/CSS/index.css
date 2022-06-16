@@ -3,6 +3,11 @@ body {
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
 body > #root > div {
   height: 100%;
   background-color: #1e1f1f;

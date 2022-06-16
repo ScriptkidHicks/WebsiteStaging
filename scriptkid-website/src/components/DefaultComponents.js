@@ -75,6 +75,14 @@ const ContentRow = styled.div`
   }
 `;
 
+const ContentImage = styled.img`
+  width: 40%;
+
+  @media screen and (max-width: 1200px) {
+    width: 90%;
+  }
+`;
+
 const Descriptor = styled.p`
   font-size: 1.2em;
   line-height: 1.5;
@@ -205,10 +213,20 @@ const Project = styled.div`
   }
 `;
 
+const HeaderImage = styled.div`
+  background: url(${(props) => props.background});
+  background-size: 100%;
+  width: 100%;
+  height: 400px;
+  align-self: flex-start;
+  justify-self: flex-start;
+`;
+
 export {
   PageBody,
   ContentColumn,
   ContentRow,
+  ContentImage,
   TextLink,
   NavLinks,
   Descriptor,
@@ -216,4 +234,5 @@ export {
   ProjectsHeader,
   ProjectRow,
   ProjectColumn,
+  HeaderImage,
 };

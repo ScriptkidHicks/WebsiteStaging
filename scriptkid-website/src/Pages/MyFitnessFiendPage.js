@@ -11,6 +11,7 @@ import {
   TextLink,
   NavLinks,
   Descriptor,
+  ContentImage,
 } from "../components/DefaultComponents";
 
 function MyFitnessFiendPage() {
@@ -63,7 +64,7 @@ function MyFitnessFiendPage() {
         <ContentImage src={Database} />
         <ContentColumn>
           <Descriptor>
-            <em>This is the database that Jordan Developed for us.</em>
+            <em>This is the database that Jordan developed for us.</em>
             <Title>Technical Features</Title>
             <ul>
               <li>
@@ -147,11 +148,3 @@ function MyFitnessFiendPage() {
 export default MyFitnessFiendPage;
 
 const Title = styled.h2``;
-
-const ContentImage = styled.img`
-  width: 40%;
-
-  @media screen and (max-width: 1200px) {
-    width: 90%;
-  }
-`;

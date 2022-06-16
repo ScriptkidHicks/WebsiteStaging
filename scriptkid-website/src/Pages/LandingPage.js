@@ -4,6 +4,7 @@ import FitnessFiend from "../Images/FitnessFiendIntro.png";
 import NewSite from "../Images/NewSite.png";
 import Aneurysm from "../Images/Streamline0008.png";
 import FreelancerIntro from "../Images/FreelancerIntro.png";
+import TravlerIntro from "../Images/TravlerIntro.png";
 
 import { useNavigate } from "react-router-dom";
 
@@ -13,6 +14,7 @@ import {
   ProjectsHeader,
   ProjectRow,
   ProjectWrapper,
+  TextLink,
 } from "../components/DefaultComponents";
 
 function LandingPage() {
@@ -30,6 +32,17 @@ function LandingPage() {
             looking for a junior developer for a front end or full stack
             position, check out the projects on my github, give my linkedin a
             look, and reach out to me through email.
+            <br />
+            <br />
+            <em>
+              This website was built in React, and if you want to take a look at
+              the code, you can check it out{" "}
+              <TextLink
+                text="here"
+                endpoint="https://github.com/ScriptkidHicks/WebsiteStaging"
+              />
+              .
+            </em>
           </IntroParagraph>
         </Intro>
       </PicAndIntro>
@@ -52,9 +65,9 @@ function LandingPage() {
             Destination="/MyFitnessFiend"
           />
           <ProjectWrapper
-            BackgroundSource={NewSite}
-            Title="This Site"
-            Destination="/"
+            BackgroundSource={TravlerIntro}
+            Title="Traveler"
+            Destination="/Traveler"
           />
         </ProjectRow>
         <ProjectRow>
