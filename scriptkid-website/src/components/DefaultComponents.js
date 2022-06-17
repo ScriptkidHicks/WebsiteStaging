@@ -135,7 +135,6 @@ const ProjectsHeader = styled.h1`
   text-justify: center;
   text-align: center;
   width: 100%;
-  margin-bottom: 100px;
 `;
 
 const ProjectWrapperStyle = styled.div`

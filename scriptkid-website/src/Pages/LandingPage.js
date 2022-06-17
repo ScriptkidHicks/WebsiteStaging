@@ -1,19 +1,14 @@
 import styled from "styled-components";
 import Casual from "../Images/casual.jpg";
-import FitnessFiend from "../Images/FitnessFiendIntro.png";
-import NewSite from "../Images/NewSite.png";
-import Aneurysm from "../Images/Streamline0008.png";
-import FreelancerIntro from "../Images/FreelancerIntro.png";
-import TravlerIntro from "../Images/TravlerIntro.png";
 
-import { useNavigate } from "react-router-dom";
+import ProjectShuffler from "../components/ProjectShuffler";
+
+import Projects from "../components/Projects";
 
 import {
   PageBody,
   ProjectColumn,
   ProjectsHeader,
-  ProjectRow,
-  ProjectWrapper,
   TextLink,
 } from "../components/DefaultComponents";
 
@@ -52,32 +47,7 @@ function LandingPage() {
           Some of my Projects
           <HeaderBar />
         </ProjectsHeader>
-        <ProjectRow>
-          <ProjectWrapper
-            BackgroundSource={FreelancerIntro}
-            Title="Project Freelancer"
-            Destination="/ProjectFreelancer"
-            Cover={true}
-          />
-          <ProjectWrapper
-            BackgroundSource={FitnessFiend}
-            Title="My Fitness Fiend"
-            Destination="/MyFitnessFiend"
-          />
-          <ProjectWrapper
-            BackgroundSource={TravlerIntro}
-            Title="Traveler"
-            Destination="/Traveler"
-          />
-        </ProjectRow>
-        <ProjectRow>
-          <ProjectWrapper
-            BackgroundSource={Aneurysm}
-            Title="Aneurysm Visiualization"
-            Destination="/AneurysmVisIt"
-            Cover={true}
-          />
-        </ProjectRow>
+        <ProjectShuffler elements={Projects} />
       </ProjectColumn>
     </PageBody>
   );
@@ -137,18 +107,5 @@ const IntroParagraph = styled.p`
     line-height: 1.5em;
     font-size: 1.3em;
     text-aign: center;
-  }
-`;
-
-const HiddenLinks = styled.p`
-  width: 90%;
-  display: none;
-  font-size: 1.3em;
-  line-height: 1.5em;
-  margin-bottom: 100px;
-
-  @media screen and (max-width: 900px) {
-    display: inline;
-    flex-direction: row;
   }
 `;
