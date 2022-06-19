@@ -1,6 +1,26 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
+const DesktopOnly = styled.div`
+  display: inherit;
+  width: 100%;
+  height: auto;
+
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+`;
+
+const MobileOnly = styled.div`
+  width: 100%;
+  height: auto;
+  display: none;
+
+  @media screen and (max-width: 900px) {
+    display: inherit;
+  }
+`;
+
 const NavigationLink = styled.a`
   color: white;
   text-decoration: none;
@@ -10,6 +30,10 @@ const NavigationLink = styled.a`
   border-radius: 4% / 50%;
   font-size: 1.3em;
   margin-bottom: 100px;
+
+  @media screen and (max-width: 900px) {
+    margin-bottom: 40px;
+  }
 
   :hover {
     box-shadow: 5px 5px 5px black;
@@ -25,17 +49,16 @@ const NavLinksStyled = styled.div`
   margin-top: 40px;
 
   @media screen and (max-width: 800px) {
-    display: none;
+    flex-direction: column;
   }
 `;
 
-function NavLinks() {
+function NavLinks(props) {
   return (
     <NavLinksStyled>
-      <NavigationLink href="/">Back to the landing page</NavigationLink>
-      <NavigationLink href="/ProjectsPage">
-        Check out other projects
-      </NavigationLink>
+      {props.elements.map((element) => (
+        <NavigationLink href={element.endpoint}>{element.text}</NavigationLink>
+      ))}
     </NavLinksStyled>
   );
 }
@@ -109,11 +132,6 @@ const ProjectColumn = styled.div`
   align-items: center;
   margin-top: 120px;
   width: 100%;
-
-  @media screen and (max-width: 900px) {
-    margin-top: 60px;
-    display: none;
-  }
 `;
 
 const ProjectRow = styled.div`
@@ -137,81 +155,6 @@ const ProjectsHeader = styled.h1`
   width: 100%;
 `;
 
-const ProjectWrapperStyle = styled.div`
-  width: 400px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  @media screen and (max-width: 900px) {
-    width: 200px;
-  }
-`;
-
-const ProjectTitle = styled.h3`
-  background-color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  color: black;
-  border-radius: 20px;
-  padding: 5px;
-`;
-
-function ProjectWrapper(props) {
-  const Navigate = useNavigate();
-  function LoadPage(targetPage) {
-    Navigate(targetPage);
-  }
-  if (props.Cover) {
-    return (
-      <ProjectWrapperStyle onClick={() => LoadPage(props.Destination)}>
-        <Project
-          background={props.BackgroundSource}
-          style={{ backgroundSize: "100% 100%" }}
-        >
-          <ProjectTitle>{`${props.Title}`}</ProjectTitle>
-        </Project>
-      </ProjectWrapperStyle>
-    );
-  } else {
-    return (
-      <ProjectWrapperStyle onClick={() => LoadPage(props.Destination)}>
-        <Project background={props.BackgroundSource} style>
-          <ProjectTitle>{`${props.Title}`}</ProjectTitle>
-        </Project>
-      </ProjectWrapperStyle>
-    );
-  }
-}
-
-const Project = styled.div`
-  background: url(${(props) => props.background});
-  width: 150px;
-  max-width: 100vw;
-  height: 150px;
-  max-height: 100vw;
-  margin-bottom: 50px;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  transition: ease all 1s;
-
-  :hover {
-    width: 300px;
-    height: 300px;
-    border-radius: 10%;
-    box-shadow: 10px 10px 10px black;
-  }
-
-  @media screen and (max-width: 900px) {
-    width: 200px;
-    height: 200px;
-    border-radius: 10%;
-    box-shadow: 10px 10px 10px black;
-  }
-`;
-
 const HeaderImage = styled.div`
   background: url(${(props) => props.background});
   background-size: 100%;
@@ -221,7 +164,86 @@ const HeaderImage = styled.div`
   justify-self: flex-start;
 `;
 
+const MobileProjectSlide = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(${(props) => props.backgroundImage});
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+  border-radius: 30px;
+  margin: 20px;
+  transition: ease-in-out box-shadow 0.4s;
+  box-shadow: 5px 5px 5px black;
+
+  :hover {
+    box-shadow: 10px 10px 10px black;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 250px;
+    height: 250px;
+  }
+`;
+
+const MobileProjectTitle = styled.h3`
+  color: white;
+  padding: 20px 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  width: 60%;
+`;
+
+const MobileProjectFlow = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1300px;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+`;
+
+function MobileProjectCard(props) {
+  const Navigate = useNavigate();
+  return (
+    <MobileProjectSlide
+      backgroundImage={props.backgroundImage}
+      onClick={() => Navigate(props.targetPage)}
+    >
+      <MobileProjectTitle>{props.title}</MobileProjectTitle>
+    </MobileProjectSlide>
+  );
+}
+
+function MobileProjectsGenerator(props) {
+  return props.elements.map((project) => (
+    <MobileProjectCard
+      targetPage={project.targetPage}
+      backgroundImage={project.backgroundImage}
+      title={project.title}
+    />
+  ));
+}
+
+function MobileProjects(props) {
+  return (
+    <MobileProjectFlow>
+      <MobileProjectsGenerator elements={props.elements} />
+    </MobileProjectFlow>
+  );
+}
+
 export {
+  DesktopOnly,
+  MobileOnly,
   PageBody,
   ContentColumn,
   ContentRow,
@@ -229,9 +251,9 @@ export {
   TextLink,
   NavLinks,
   Descriptor,
-  ProjectWrapper,
   ProjectsHeader,
   ProjectRow,
   ProjectColumn,
   HeaderImage,
+  MobileProjects,
 };

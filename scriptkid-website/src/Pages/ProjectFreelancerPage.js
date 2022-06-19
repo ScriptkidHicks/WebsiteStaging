@@ -87,7 +87,12 @@ function ProjectFreelancerPage() {
             />
             .
           </Descriptor>
-          <NavLinks />
+          <NavLinks
+            elements={[
+              { text: "Back to the landing page", endpoint: "/" },
+              { text: "Check out other projects", endpoint: "/ProjectsPage" },
+            ]}
+          />
         </ContentColumn>
       </ContentRow>
     </PageBody>

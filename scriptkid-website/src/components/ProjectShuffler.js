@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ProjectSlide from "./ProjectSlide";
 import RightArrow from "../Images/Arrow_Right.png";
 import LeftArrow from "../Images/Arrow_Left.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function ProjectShuffler(props) {
   const [modalIndex, setModalIndex] = useState(0);
@@ -12,19 +12,22 @@ function ProjectShuffler(props) {
   );
   const [title, setTitle] = useState(props.elements[0].title);
   const listSize = props.elements.length;
+  let temp = 0;
 
   function changePointer(changeAmount) {
-    let temp = (modalIndex + changeAmount) % listSize;
+    temp = (modalIndex + changeAmount) % listSize;
     if (temp < 0) {
       setModalIndex(listSize + temp);
     } else {
       setModalIndex(temp);
     }
-    console.log(modalIndex);
+  }
+
+  useEffect(() => {
     setTarget(props.elements[modalIndex].targetPage);
     setBackgroundImage(props.elements[modalIndex].backgroundImage);
     setTitle(props.elements[modalIndex].title);
-  }
+  }, [modalIndex]);
 
   return (
     <ProjectRails>

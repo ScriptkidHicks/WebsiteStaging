@@ -1,20 +1,28 @@
 import styled from "styled-components";
 
-import ProjectShuffler from "../components/ProjectShuffler";
+import {
+  MobileProjects,
+  NavLinks,
+  PageBody,
+} from "../components/DefaultComponents";
 
 import Projects from "../components/Projects";
-
-import { PageBody, ProjectColumn } from "../components/DefaultComponents";
 
 function ProjectsPage() {
   return (
     <PageBody>
       <PageTitle>
-        <h3 style={{ textAlign: "center" }}>Some of My Projects</h3>
+        <h3 style={{ textAlign: "center", marginTop: "50px" }}>
+          Some of My Projects
+        </h3>
       </PageTitle>
-      <ProjectColumn style={{ display: "flex" }}>
-        <ProjectShuffler elements={Projects} />
-      </ProjectColumn>
+      <MobileProjects elements={Projects} />
+      <NavLinks
+        elements={[
+          { text: "Back to the landing page", endpoint: "/" },
+          { text: "About me", endpoint: "/About" },
+        ]}
+      />
     </PageBody>
   );
 }

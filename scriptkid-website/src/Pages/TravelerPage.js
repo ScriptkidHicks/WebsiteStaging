@@ -10,6 +10,8 @@ import {
   ContentColumn,
   Descriptor,
   ContentImage,
+  TextLink,
+  NavLinks,
 } from "../components/DefaultComponents";
 
 function TravelerPage() {
@@ -33,7 +35,37 @@ function TravelerPage() {
       <PageBody>
         <ContentRow>
           <ContentColumn>
-            <Descriptor>weeeee</Descriptor>
+            <Descriptor>
+              &emsp;Traveler was a project that several friends and I worked on
+              for a software methodology class. The goal of the project was
+              simple: use the google maps api to provide a solution to the
+              traveling salesman problem. I worked with{" "}
+              <TextLink
+                endpoint="https://github.com/jssmith9876"
+                text="Jordan Smith"
+              />{" "}
+              and{" "}
+              <TextLink
+                endpoint="https://github.com/doughnut187"
+                text="Thomas Joyce"
+              />{" "}
+              to come up with a smooth, easy to interface app, meant to provide
+              a service to companies organizing delivery routes. <br />
+              &emsp;This project was a great trial run in developing
+              backend-frontend communicataion, and integrating a third party AI
+              into our app. It was also a fantastic opportunity to hone team
+              work skills. You can find the code from the project{" "}
+              <TextLink
+                endpoint="https://github.com/ScriptkidHicks/Traveler"
+                text="here"
+              />
+            </Descriptor>
+            <NavLinks
+              elements={[
+                { text: "Back to the landing page", endpoint: "/" },
+                { text: "Check out other projects", endpoint: "/ProjectsPage" },
+              ]}
+            />
           </ContentColumn>
           <ContentImage
             src={TravlerIntro}

@@ -6,10 +6,14 @@ import ProjectShuffler from "../components/ProjectShuffler";
 import Projects from "../components/Projects";
 
 import {
+  MobileProjects,
+  MobileOnly,
+  DesktopOnly,
   PageBody,
   ProjectColumn,
   ProjectsHeader,
   TextLink,
+  NavLinks,
 } from "../components/DefaultComponents";
 
 function LandingPage() {
@@ -47,7 +51,23 @@ function LandingPage() {
           Some of my Projects
           <HeaderBar />
         </ProjectsHeader>
-        <ProjectShuffler elements={Projects} />
+        <DesktopOnly>
+          <ProjectShuffler elements={Projects} />
+        </DesktopOnly>
+        <MobileOnly>
+          <MobileProjects elements={Projects} />
+        </MobileOnly>
+        <DesktopOnly>
+          <NavLinks
+            elements={[
+              { text: "About me", endpoint: "/About" },
+              { text: "Check out other projects", endpoint: "/ProjectsPage" },
+            ]}
+          />
+        </DesktopOnly>
+        <MobileOnly>
+          <NavLinks elements={[{ text: "About me", endpoint: "/About" }]} />
+        </MobileOnly>
       </ProjectColumn>
     </PageBody>
   );

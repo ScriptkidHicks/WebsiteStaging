@@ -16,7 +16,7 @@ function HeaderBar() {
   }
   return (
     <Header>
-      <NameTitle>Programming Work by Tammas Hicks</NameTitle>
+      <NameTitle href="/">Programming Work by Tammas Hicks</NameTitle>
       <IconsDiv>
         <a
           href="https://www.linkedin.com/in/tammas-hicks/"
@@ -78,16 +78,19 @@ const Header = styled.div`
   align-items: center;
   justify-content: space-around;
   box-shadow: -5px 0px 10px black;
-  
-  @media screen and (max-width: 460px){
+
+  @media screen and (max-width: 460px) {
     padding-top: 20px;
     padding-bottom: 20px;
   }
 `;
 
-const NameTitle = styled.h2`
+const NameTitle = styled.a`
   margin-left: 20px;
   font-size: min(2em, 7vw);
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
 `;
 
 const HeaderIcon = styled.img`

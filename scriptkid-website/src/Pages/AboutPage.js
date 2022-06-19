@@ -27,7 +27,12 @@ function AboutPage() {
         Check out my projects on here, and if you like what you see, reach out
         through my email for a resume or interview.
       </AboutParagraph>
-      <NavLinks />
+      <NavLinks
+        elements={[
+          { text: "Back to the landing page", endpoint: "/" },
+          { text: "Check out other projects", endpoint: "/ProjectsPage" },
+        ]}
+      />
     </PageBody>
   );
 }

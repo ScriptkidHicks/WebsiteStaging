@@ -138,7 +138,12 @@ function MyFitnessFiendPage() {
             . The 'Deployment' branch contains our most recent work on the
             project.
           </Descriptor>
-          <NavLinks />
+          <NavLinks
+            elements={[
+              { text: "Back to the landing page", endpoint: "/" },
+              { text: "Check out other projects", endpoint: "/ProjectsPage" },
+            ]}
+          />
         </ContentColumn>
       </ContentRow>
     </PageBody>

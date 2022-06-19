@@ -34,6 +34,7 @@ const Slide = styled.div`
   background-size: cover;
   border-radius: 50%;
   transition: ease-in-out all 0.6s;
+  box-shadow: 5px 5px 10px black;
 
   :hover {
     width: 450px;
